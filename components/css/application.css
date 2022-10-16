@@ -79,6 +79,18 @@ body {
   border: none;
   height: 45px;
   cursor: pointer;
+  
+}
+.block {
+  width: 45px;
+  margin-left: 15px;
+  background: black;
+  color: white;
+  border-radius: 35px;
+  border: none;
+  height: 45px;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 .contain button:hover {
