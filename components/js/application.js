@@ -1,6 +1,7 @@
 const inpDec = document.getElementById("enterDecide");
 const decidebutton = document.getElementById("decButton");
 const addDec = document.getElementById("addDecide");
+var decisionlist = document.querySelector(".inputlar");
 var deger = inpDec.value;
 
 eventListeners();
@@ -12,10 +13,21 @@ eventListeners();
 
 
 function eventListeners(){
-    addDec.addEventListener('click', addDecide);
+    addDec.addEventListener('click', countClicks);
 }
 
+var clickLimit = 5;
 
+
+
+function countClicks() {
+  if (decisionlist.children.length < clickLimit) {
+    addDecide();
+  }
+  else {
+    alert('daha fazla ekleyemezsiniz')
+  }
+}
 
 
 
@@ -29,6 +41,12 @@ function addDecide() {
         value = inpDec.value;
         dec.value = value;
         console.log(typeof dec);
+        
+        
+        dec.className = `Karar${defid}`
+
+
+
         inpDec.value = "";
 }
 
