@@ -1,19 +1,19 @@
 const inpDec = document.getElementById("enterDecide");
 const decidebutton = document.getElementById("decButton");
 const addDec = document.getElementById("addDecide");
-var decisionlist = document.querySelector(".inputlar");
-var remitem = document.getElementById("removeitem")
+let decisionlist = document.querySelector(".inputlar");
+let remitem = document.getElementById("removeitem")
 
 
 
 
 
 
-var deger = inpDec.value;
-var decision1 = document.querySelector("#Karar1")
-var decision2 = document.querySelector("#Karar2")
-var decision3 = document.querySelector("#Karar3")
-var decision4 = document.querySelector("#Karar4")
+let deger = inpDec.value;
+let decision1 = document.querySelector(".Karar1")
+let decision2 = document.querySelector(".Karar2")
+let decision3 = document.querySelector(".Karar3")
+let decision4 = document.querySelector(".Karar4")
 
 
 
@@ -27,16 +27,18 @@ eventListeners();
 function eventListeners(){
     addDec.addEventListener('click', countClicks);
     remitem.addEventListener('click', remove);
-    decidebutton.addEventListener('click', random)
+    decidebutton.addEventListener('click', random);
+ 
 }
 
-var clickLimit = 5;
+let clickLimit = 5;
 
 
 
 function countClicks() {
   if (decisionlist.children.length < clickLimit) {
     addDecide();
+   
   }
   else {
     alert('daha fazla ekleyemezsiniz')
@@ -57,8 +59,11 @@ function addDecide() {
         inputlar.appendChild(dec);
         value = inpDec.value;
         dec.value = value;
-        console.log(typeof dec);
         dec.className = `Karar${defid}`
+        decision1 = dec;
+        decision1.addEventListener("input", function(e){
+          console.log(e.target.value);
+        })
         defid += 1;
         inpDec.value = "";
 }
@@ -70,9 +75,7 @@ const decitions = [decision1,decision2,decision3,decision4];
 function random(e) {
     const random = Math.floor(Math.random() * decitions.length);
     console.log(random, decitions[random]);
-    var result = document.querySelector(".resultbox").innerHTML=random;
+    let result = document.querySelector(".resultbox").innerHTML=random;
+    document.querySelector(".resultbox").innerHTML = decision1
     return(e);
 }
-
-/* const random = Math.floor(Math.random() * decitions.length);
-console.log(random, decitions[random]); */
